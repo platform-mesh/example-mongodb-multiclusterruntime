@@ -80,8 +80,8 @@ func run() error {
 	zapOpts.BindFlags(flag.CommandLine)
 	flag.Parse()
 
-	if opts.kcpkubeconfig == "" || opts.targetkubeconfig == "" {
-		return errors.New("both --kcp-kubeconfig and --target-kubeconfig must be specified")
+	if opts.kcpkubeconfig == "" {
+		return errors.New("--kcp-kubeconfig must be specified")
 	}
 
 	logger := kubezap.New(kubezap.UseFlagOptions(&zapOpts))
